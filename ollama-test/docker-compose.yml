@@ -1,0 +1,14 @@
+services:
+  ollama-test:
+    container_name: ollama-test
+    command: tail -F anything
+    build: .
+    volumes:
+      - .:/workdir
+    networks:
+      - ollama-net
+
+networks:
+  ollama-net:
+    driver: bridge
+    external: true
